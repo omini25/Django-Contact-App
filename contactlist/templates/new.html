@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style-edit.css'%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aeafb33d61.js" crossorigin="anonymous"></script>
+    <title>Edit Contact</title>
+</head>
+
+<body>
+    <div id="container">
+        <header id="hero">
+            <a href="{% url 'index' %}">
+                <i class="fas fa-arrow-circle-left back-btn"></i>
+            </a>
+
+            <div id="heroInfo">
+                <h1 id="name">New Contact</h1>
+
+            </div>
+
+        </header>
+        <form action="#" method="POST">
+            {% csrf_token %}
+            <section id="contatedit">
+
+                <div id="editLine">
+                    <i class="fas fa-user iconGradiant"></i>
+                    <input type="text" id="type" name="fullname" placeholder="Full Name">
+                </div>
+
+                <div id="editLine">
+                    <i class="fas fa-phone-square iconGradiant"></i>
+                    <input type="number" name="phonenumber" id="type" placeholder="Enter Phone Number">
+                </div>
+
+                <div id="editLine">
+                    <i class="fas fa-comment-dots iconGradiant"></i>
+                    <input type="text" id="type" name="relationship" placeholder="Relationship">
+                </div>
+
+                <div id="editLine">
+                    <i class="fas fa-envelope iconGradiant"></i>
+                    <input type="email" name="email" id="type" placeholder="Enter Email Address">
+                </div>
+
+                <div id="editLine">
+                    <i id="locationIcon" class="fas fa-map-marker-alt iconGradiant"></i>
+                    <input type="text" id="type" name="address" placeholder="Enter Address">
+                </div>
+            </section>
+
+<!--
+            <section id="btnContainer">
+                <a href=" ">
+                    <div id="updateContact">
+                        <i class="fas fa-save iconGradiant"></i>
+                        <button id="btn1" type="submit">Save Contact</button>
+                    </div>
+                </a>
+
+            </section>
+--!>
+            <hr>
+           <section id="btncontainer">
+				<div id="updateContact">
+					<i class="fas fa-save iconGradiant"></i>
+					<button type="submit" id="btn1">Save Contact</button>
+				</div>
+			</section>
+
+        </form>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+{% load  static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style-profile.css'%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aeafb33d61.js" crossorigin="anonymous"></script>
+    <title>Contact Profile Page</title>
+</head>
+
+<body>
+    <div id="container">
+        <header id="hero">
+            <a href="{% url 'index' %}">
+                <i class="fas fa-arrow-circle-left back-btn"></i>
+            </a>
+
+            <div id="heroInfo">
+                <h1 id="name">{{ contact.full_name | title }}</h1>
+                <p id="relationship">{{ contact.relationship | title }}</p>
+            </div>
+
+        </header>
+
+        <section id="contatInfo">
+
+            <div id="infoLine">
+                <i class="fas fa-phone-square iconGradiant"></i>
+                <p id="phoneNumber"> {{ contact.phone_number }}</p>
+            </div>
+
+            <div id="infoLine">
+                    <i id="locationIcon" class="fas fa-envelope iconGradiant"></i>
+                    <p id="email"> {{ contact.email }}</p>
+            </div>
+
+            <div id="infoLine">
+                <i class="fas fa-map-marker-alt iconGradiant"></i>
+                <p id="address"> {{ contact.address }}</p>
+            </div>
+
+        </section>
+
+        <a href="{% url 'edit-contact' contact.id %}">
+            <section id="editContact">
+                <div id="editBtn">
+                    <i class="fas fa-cog iconGradiant"></i>
+                </div>
+            </section>
+        </a>
+
+    </div>
+</body>
+
+</html>

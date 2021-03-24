@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css'%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aeafb33d61.js" crossorigin="anonymous"></script>
+    <title>Contact List App</title>
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+            <form action="/" method="GET" id="searchBar">
+                <input type="searchName" id="contactSearch" name="searchArea" placeholder="Search" value="{{ search_input }}">
+            </form>
+            <a href="{% url 'add-contact' %}">
+                <i class="fas fa-plus-square add"></i>
+            </a>
+
+        </header>
+
+        <section id="contactsLibary">
+            <ul id="contactList">
+                {% for contact in contacts reversed %}
+                <a href="{% url 'profile' contact.id %}">
+                    <div id="contactSection">
+                        <li id="listItems">
+                            <p id="contactName"> {{ contact.full_name | title }}</p>
+                            <p id="relationship"> {{ contact.relationship | title }}</p>
+                        </li>
+
+                        <li id="listItems">
+                            <i class="fas fa-phone-square"></i>
+                            <i class="fas fa-comment-dots text"></i>
+                        </li>
+                    </div>
+                </a>
+
+                <hr>
+                {% empty %}
+                    <h2 style="color:white; padding: 20px">No contact found...</h2>
+                {% endfor %}
+
+
+
+            </ul>
+
+        </section>
+
+
+    </div>
+</body>
+
+</html>

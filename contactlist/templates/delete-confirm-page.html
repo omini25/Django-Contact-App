@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style-edit.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aeafb33d61.js" crossorigin="anonymous"></script>
+    <title>Confirm Delete</title>
+</head>
+
+<body>
+
+    <div id="container">
+        <header id="hero">
+            <a href="{% url 'edit-contact' contact.id %}">
+                <i class="fas fa-arrow-circle-left back-btn"></i>
+            </a>
+
+            <div id="heroInfo">
+                <h1 id="name">{{ contact.full_name | upper }}</h1>
+                <p id="relationship">{{ contact.relationship | title }}</p>
+            </div>
+
+        </header>
+
+        <section>
+            <div>
+                <p id="askDelete">Are You Sure you want to <br> delete this contact?</p>
+            </div>
+        </section>
+
+        <form method="POST">
+            {% csrf_token %}
+            <section id="btnContainer">
+                    <div id="updateContact">
+                        <i class="fas fa-user-slash iconGradiant"></i>
+                        <button id="btn2">Confirm Delete</button>
+                    </div>
+
+            </section>
+        </form>
+</body>
+
+</html>
